@@ -22,36 +22,26 @@
 		<h1><a href="#" title="Green Zone">Green Zone 2.0</a></h1>
 		<p>Fluid, responsive, CSS only (image-free) version of the classic free template by MLP Design.</p>
 	</div>
-	<!--End Header -->
-<nav>
-<label for="show-menu" class="responsive">&#9776; Menu</label>
-<input type="checkbox" id="show-menu" role="button">
-		<ul id="menu">
-			<li><a class="current">Home</a></li>
-			<li><a href="#" title="About">About</a></li>
-			<li><a href="#" title="Contact">Contact</a></li>
-			<li><a href="#" title="Sitemap">Sitemap</a></li>
-		</ul>
-</nav>
-	<!-- Begin Content -->
+
+
 	<div id="content">
 		<div class="post">
-		<h2><a title="H2 Headline with link" href="#">Headline with link</a></h2>
 		<br>
         
         <table class="general">
             <tr>
-              <th style="width: 20%;" onclick="x = rot13('porotocon')">Clave</th>
+              <th style="width: 15%;" onclick="x = MD5()">Clave</th>
               <th>Texto en Claro</th>
               <th>Texto Cifrado</th>
             </tr>
             <tr>
               <td>Clave box</td>
-              <td rowspan="2" id="textoClaro">Texto en claroasdasdasdas\<br>
-                asdasd<br>
-                asdasd<br>
+              <td rowspan="2" style="width: 40%;">
+				   <textarea style="width: 90%;" id="textoClaro">poroto</textarea>
               </td>
-              <td rowspan="2" id="textoCifrado">Texto cifrado box</td>
+              <td rowspan="2"  style="width: 40%;">
+				   <textarea style="width: 90%;" id="textoCifrado"> </textarea>
+              </td>
             </tr>
             <tr>
               <td>Seleccion de cifrado</td>
