@@ -98,6 +98,15 @@ function MD5(){
         for (var j = 0; j < 16; j=j+4) {
             console.log(str.slice(j,j+4));
         }
+        for (var j = 0; j < 16; j=j+4) {
+            console.log(str.slice(j,j+4));
+        }
+        for (var j = 0; j < 16; j=j+4) {
+            console.log(str.slice(j,j+4));
+        }
+        for (var j = 0; j < 16; j=j+4) {
+            console.log(str.slice(j,j+4));
+        }
     }
 
     //convertir a hex
@@ -112,5 +121,30 @@ function MD5(){
     //Escribir resultado;
     document.getElementById("textoCifrado").value = string;
     return string;
+
+}
+
+function controller(){
+    var x = document.getElementById("cifrado").value;
+    parseInt(x);
+
+    if(x == 1){
+        MD5();
+    }
+    else if(x==2){
+        document.getElementById("textoCifrado").value = "SHAI";
+    }
+    else if(x==3){
+        document.getElementById("textoCifrado").value = "SHAI 2";
+    }
+    else if(x==4){
+        document.getElementById("textoCifrado").value = "HMAC";
+    }
+    else if(x==5){
+        document.getElementById("textoCifrado").value = "Poroto";
+    }
+    else if(x==6){
+        document.getElementById("textoCifrado").value = "Pogdo";
+    }
 
 }

@@ -35,7 +35,9 @@
               <th>Texto Cifrado</th>
             </tr>
             <tr>
-              <td>Clave box</td>
+              <td>
+				  <button id="BotonCifrar" onclick="controller()" style="width:100px; height: 20px;" >Cifrar</button>
+			  </td>
               <td rowspan="2" style="width: 40%;">
 				   <textarea style="width: 90%;" id="textoClaro">poroto</textarea>
               </td>
@@ -44,7 +46,16 @@
               </td>
             </tr>
             <tr>
-              <td>Seleccion de cifrado</td>
+              <td>Seleccion de cifrado
+				<select name="cifrado" id="cifrado">
+					<option value="1" onchange="">MD5</option> 
+					<option value="2">SHAI</option> 
+					<option value="3">SHAI 2</option>
+					<option value="4">HMAC</option> 
+					<option value="5">Poroto</option> 
+					<option value="6">Pogdo</option> 
+				 </select>
+			  </td>
               
             </tr>
           </table>
