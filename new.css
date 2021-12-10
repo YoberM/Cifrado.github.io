@@ -251,6 +251,21 @@ ul#menu li a:hover,ul#menu li a.current
   box-shadow: 1px 6px #30436d, -1px 6px #30436d;
 
 }
+.TextoClaveActivo
+{
+  width: 50%;
+  border-radius: 10px;  
+  box-shadow: 1px 6px #30436d, -1px 6px #30436d;
+
+}
+.TextoClaveInactivo
+{
+  visibility: hidden;
+  width: 50%;
+  border-radius: 10px;  
+  box-shadow: 1px 6px #30436d, -1px 6px #30436d;
+
+}
 
 
 
