@@ -8,7 +8,75 @@
 <link rel="stylesheet" href="new.css" type="text/css" />
 <!-- Poroto avances-->
 
-<script type="text/javascript" src="encriptado.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/sha1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/sha256.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/x64-core.min.js" integrity="sha512-tNYICRDqCrXYTs49IF9PkDrFhc928gh7V0mDsfEGMEjrxK2GbDlOag3oeYEB4RqsKolV2AyzKw6eMiconXqeiw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/hmac-md5.min.js" integrity="sha512-gy8JaBxTrtIxNLe1FfMAXey61VjQk3Af4EyY/EpVfmWPH16iCgdRZMHEFgKIyxMrarlc6+rDf6WneGL4SWqnpg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha512.min.js"></script>
+
+<script src="src/md4.js"></script>
+<script type="text/javascript">
+
+function controller(){
+    var x = document.getElementById("cifrado").value;
+    var message = document.getElementById("textoClaro").value;
+    parseInt(x);
+    if(x == 1){
+
+        // document.getElementById("textoCifrado").value = Crypto(message);
+		var hash = md4(message);
+        document.getElementById("textoCifrado").value = "md4";
+        document.getElementById("textoCifrado").value = hash;
+    }
+    else if(x==2){
+		var hash = CryptoJS.MD5(message);
+        document.getElementById("textoCifrado").value = "md5";
+        document.getElementById("textoCifrado").value = hash;
+    }
+    else if(x==3){
+		var hash = CryptoJS.SHA1(message);
+        document.getElementById("textoCifrado").value = "SHAI 1";
+        document.getElementById("textoCifrado").value = hash;
+    }
+    else if(x==4){
+		var hash = CryptoJS.SHA256(message);
+        document.getElementById("textoCifrado").value = "SHAI 256";
+        document.getElementById("textoCifrado").value = hash;
+    }
+    else if(x==5){
+		var hash = CryptoJS.SHA512(message);
+        document.getElementById("textoCifrado").value = "SHA512";
+        document.getElementById("textoCifrado").value = hash;
+    }
+    else if(x==6){
+		var clave = document.getElementById("TextoClave").value;
+		var hash = CryptoJS.HmacMD5(message,clave);
+        document.getElementById("textoCifrado").value = "HMAC - MD5";
+        document.getElementById("textoCifrado").value = hash;
+    }
+
+}
+function Cambio(){
+    var x = document.getElementById("cifrado").value;
+
+    if(x == 6){
+		// document.getElementById("TextoClave").classList.toggle("TextoClaveActivo");
+		document.getElementById("TextoClave").className = "TextoClaveActivo";
+    }
+	else{
+		// document.getElementById("TextoClave").classList.toggle("TextoClaveInactivo");
+		document.getElementById("TextoClave").className = "TextoClaveInactivo";
+	}
+
+}
+	
+</script>
 
 
 </head>
@@ -39,7 +107,7 @@
 				  <button id="BotonCifrar" onclick="controller()" style="width:100px; height: 20px;" >Cifrar</button>
 			  </td>
               <td rowspan="2" style="width: 40%; ">
-				   <textarea class="TextoArea" id="textoClaro">poroto</textarea>
+				   <textarea class="TextoArea" id="textoClaro">mensaje</textarea>
               </td>
               <td rowspan="2" style="width: 40%;">
 				   <textarea class="TextoArea" id="textoCifrado"> </textarea>
@@ -47,14 +115,16 @@
             </tr>
             <tr>
               <td>Seleccion de cifrado
-				<select name="cifrado" id="cifrado">
-					<option value="1" onchange="">MD5</option> 
-					<option value="2">SHAI</option> 
-					<option value="3">SHAI 2</option>
-					<option value="4">HMAC</option> 
-					<option value="5">Poroto</option> 
-					<option value="6">Pogdo</option> 
-				 </select>
+				<select name="cifrado" id="cifrado" onchange="Cambio()">
+					<option value="1">MD4</option> 
+					<option value="2">MD5</option> 
+					<option value="3">SHA 1</option>
+					<option value="4">SHA 256</option> 
+					<option value="5">SHA 512</option> 
+					<option value="6">HMAC-MD5</option> 
+				 </select><br>
+				 <br>
+				 <textarea class="TextoClaveInactivo" id="TextoClave">clave</textarea>
 			  </td>
               
             </tr>
